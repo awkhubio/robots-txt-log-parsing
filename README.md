@@ -47,3 +47,11 @@ POSIX `awk` or `mawk`. No GNU awk extensions (`asort`, etc.).
 
 - `robots_summary.awk` is the parser
 - Do not commit raw `access_log` files
+
+
+## CLI checks:
+
+```awk '$0 ~ /"GET \/robots\.txt/ { n++ } END { print n }' access_log```
+
+
+```fgrep robots.txt access_log | awk '$0 !~ /"GET \/robots\.txt/ { n++ } END { print n }'```
